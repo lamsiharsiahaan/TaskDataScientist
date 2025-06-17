@@ -3,6 +3,7 @@ USE Sihar;
 
 SELECT * FROM e_commerce_transactions LIMIT 10;
 
+-- Bagian 1: RFM dan Segmentasi Pelanggan
 -- Menetapkan tanggal acuan
 SET @ref_date = '2024-07-01';
 
@@ -26,3 +27,16 @@ SELECT
 FROM e_commerce_transactions
 GROUP BY customer_id
 ORDER BY customer_id;
+
+
+-- Bagian 2: Repeat Purchase Bulanan
+-- Menampilkan pelanggan yang melakukan repeat purchase dalam sebulan
+EXPLAIN
+SELECT 
+  customer_id,
+  DATE_FORMAT(order_date, '%Y-%m') AS order_month,
+  COUNT(order_id) AS order_count
+FROM e_commerce_transactions
+GROUP BY customer_id, order_month
+HAVING COUNT(order_id) > 1
+ORDER BY customer_id, order_month;
