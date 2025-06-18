@@ -1,0 +1,2 @@
+Model diuji dengan Hosmer–Lemeshow menghasilkan p-value 0.0208, menunjukkan potensi miscalibration kecil. Namun, calibration curve mengindikasikan bahwa prediksi masih konsisten terutama di kisaran probabilitas rendah.
+Untuk meminimalkan risiko, cut-off skor ditetapkan berdasarkan probabilitas ≤ 0.05, yang secara scorecard ekuivalen dengan skor ≥ 823. Artinya, hanya aplikasi dengan skor ≥ 823 yang layak disetujui agar menjaga tingkat default di bawah 5% untuk pinjaman senilai IDR 5 juta.
